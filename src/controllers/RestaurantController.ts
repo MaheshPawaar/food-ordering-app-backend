@@ -54,7 +54,7 @@ export const searchRestaurant = async (req: Request, res: Response) => {
     const total = await Restaurant.countDocuments(query);
 
     const response = {
-      restaurants,
+      data: restaurants,
       pagination: {
         total,
         page,
