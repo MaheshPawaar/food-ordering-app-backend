@@ -6,6 +6,7 @@ import 'dotenv/config';
 import myUserRoute from './routes/MyUserRoute';
 import myRestaurantRoute from './routes/MyRestaurantRoute';
 import restaurantRoute from './routes/RestaurantRoute';
+import orderRoute from './routes/OrderRoute';
 
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string).then(() => {
   console.log(`Connected to Database...✅`);
@@ -28,6 +29,7 @@ app.get('/health', async (req: Request, res: Response) => {
 app.use('/api/my/user', myUserRoute);
 app.use('/api/my/restaurant', myRestaurantRoute);
 app.use('/api/restaurant', restaurantRoute);
+app.use('/api/order', orderRoute);
 
 app.listen(3000, () => {
   console.log(`Server is running at port 3000...🚀`);
