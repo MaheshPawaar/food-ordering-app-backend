@@ -174,4 +174,4 @@ const createSession = async (
   return sessionData;
 };
 
-export default { getMyOrders, reateCheckoutSession, stripeWebhookHandler };
+export default { getMyOrders, createCheckoutSession, stripeWebhookHandler };
