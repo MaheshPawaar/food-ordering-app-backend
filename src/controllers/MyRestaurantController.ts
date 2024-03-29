@@ -107,13 +107,13 @@ const updateOrderStatus = async (req: Request, res: Response) => {
     const restaurant = await Restaurant.findById(order.restaurant);
 
     if (restaurant?.user?._id.toString() !== req.userId) {
-      return res.status(404).send();
+      return res.status(401).send();
     }
 
     order.status = status;
     await order.save();
 
-    return res.send(200).json(order);
+    return res.status(200).json(order);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: 'Unable to update order status' });
